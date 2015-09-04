@@ -1,0 +1,18 @@
+.panel-heading
+  h3 Show Channel
+.panel-body
+  dl
+    dt Code
+    dd = @channel.code
+  dl
+    dt Name
+    dd = @channel.name
+  dl
+    dt Thumbnail
+    dd = image_tag @channel.thumbnail.url(:thumb)
+  dl
+    dt Description
+    dd = @channel.description
+  = link_to 'Back', backend_channels_path, class: 'btn btn-default'
+  | &nbsp;
+  = link_to 'Edit', edit_backend_channel_path(@channel), class: 'btn btn-primary'

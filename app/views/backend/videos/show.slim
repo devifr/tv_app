@@ -1,0 +1,30 @@
+.panel-heading
+  h3 Show Video
+.panel-body
+  dl
+    dt Program
+    dd = @video.program.name
+  dl
+    dt Title
+    dd = @video.title
+  dl
+    dt Season
+    dd = @video.season
+  dl
+    dt Episode
+    dd = @video.episode
+  dl
+    dt Media ID
+    dd = @video.media_id
+  dl
+    dt Featured
+    dd = @video.featured?
+  dl
+    dt Thumbnail
+    dd = image_tag @video.thumbnail.url(:thumb)
+  dl
+    dt Description
+    dd = @video.description
+  = link_to 'Back', backend_videos_path, class: 'btn btn-default'
+  | &nbsp;
+  = link_to 'Edit', edit_backend_video_path(@video), class: 'btn btn-primary'

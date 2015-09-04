@@ -1,0 +1,5 @@
+.panel-heading
+  h3 Update Program
+.panel-body
+  = form_for @program, url: backend_program_path(@program), class: 'form-horizontal' do |f|
+    = render 'form', f: f

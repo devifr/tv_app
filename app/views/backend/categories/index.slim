@@ -1,0 +1,26 @@
+.panel-heading
+  h3 List Categories
+.panel-body
+  = link_to 'New', new_backend_category_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th NO
+        th Thumbnail
+        th Code
+        th Name
+        th Action
+    tbody
+      - @categories.each.with_index(1) do |category, i|
+        tr
+          td = i
+          td = image_tag category.thumbnail.url(:thumb), height: 50
+          td = category.code
+          td = category.name
+          td
+            = link_to 'Show', backend_category_path(category), class: 'btn btn-info btn-sm'
+            | &nbsp;
+            = link_to 'edit', edit_backend_category_path(category), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_category_path(category), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Categories #{category.code} Will Deleted, Are You Sure?"}
+  = paginate @categories

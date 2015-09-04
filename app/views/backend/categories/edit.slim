@@ -1,0 +1,5 @@
+.panel-heading
+  h3 Update Category
+.panel-body
+  = form_for @category, url: backend_category_path(@category), class: 'form-horizontal' do |f|
+    = render 'form', f: f

@@ -1,0 +1,26 @@
+.panel-heading
+  h3 List Channel
+.panel-body
+  = link_to 'New', new_backend_channel_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th NO
+        th Thumbnail
+        th Code
+        th Name
+        th Action
+    tbody
+      - @channels.each.with_index(1) do |channel, i|
+        tr
+          td = i
+          td = image_tag channel.thumbnail.url(:thumb), height: 50
+          td = channel.code
+          td = channel.name
+          td
+            = link_to 'Show', backend_channel_path(channel), class: 'btn btn-info btn-sm'
+            | &nbsp;
+            = link_to 'edit', edit_backend_channel_path(channel), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_channel_path(channel), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Channel #{channel.code} Will Deleted, Are You Sure?"}
+  = paginate @channels

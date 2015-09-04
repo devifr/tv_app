@@ -1,0 +1,28 @@
+.panel-heading
+  h3 List Program
+.panel-body
+  = link_to 'New', new_backend_program_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th NO
+        th Channel
+        th Category
+        th Code
+        th Name
+        th Action
+    tbody
+      - @programs.each.with_index(1) do |program, i|
+        tr
+          td = i
+          td = program.channel.name
+          td = program.category.name
+          td = program.code
+          td = program.name
+          td
+            = link_to 'Show', backend_program_path(program), class: 'btn btn-info btn-sm'
+            | &nbsp;
+            = link_to 'edit', edit_backend_program_path(program), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_program_path(program), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Channel #{program.code} Will Deleted, Are You Sure?"}
+  = paginate @programs

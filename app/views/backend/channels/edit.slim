@@ -1,0 +1,5 @@
+.panel-heading
+  h3 Update Channel
+.panel-body
+  = form_for @channel, url: backend_channel_path(@channel), class: 'form-horizontal' do |f|
+    = render 'form', f: f

@@ -1,0 +1,5 @@
+.panel-heading
+  h3 New Video
+.panel-body
+  = form_for @video, url: backend_videos_path, class: 'form-horizontal' do |f|
+    = render 'form', f: f

@@ -1,0 +1,25 @@
+.form-group
+  = f.label :channel_id, class: 'control-label'
+  = f.select :channel_id, options_from_collection_for_select(@channels, :id, :name, f.object.channel_id), {prompt: 'Select Channel'}, class: 'form-control'
+.form-group
+  = f.label :category_id, class: 'control-label'
+  = f.select :category_id, options_from_collection_for_select(@categories, :id, :name, f.object.category_id), {prompt: 'Select Category'}, class: 'form-control'
+.form-group
+  = f.label :code, class: 'control-label'
+  = f.text_field :code, class: 'form-control'
+.form-group
+  = f.label :name, class: 'control-label'
+  = f.text_field :name, class: 'form-control'
+.checkbox
+  = f.label :is_episode, class: 'control-label' do
+    = f.check_box :is_episode
+    | Is Episode
+.form-group
+  = f.label :thumbnail, class: 'control-label'
+  br
+  = image_tag f.object.thumbnail.url(:thumb)
+  = f.file_field :thumbnail
+.form-group
+  = link_to 'Back', backend_channels_path, class: 'btn btn-default'
+  | &nbsp;
+  = f.submit 'Save', class: 'btn btn-primary'

@@ -1,0 +1,26 @@
+.panel-heading
+  h3 List Video
+.panel-body
+  = link_to 'New', new_backend_video_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th NO
+        th Thumbnail
+        th Program
+        th Title
+        th Action
+    tbody
+      - @videos.each.with_index(1) do |video, i|
+        tr
+          td = i
+          td = image_tag video.thumbnail.url(:thumb), height: '50'
+          td = video.program.name
+          td = video.title
+          td
+            = link_to 'Show', backend_video_path(video), class: 'btn btn-info btn-sm'
+            | &nbsp;
+            = link_to 'edit', edit_backend_video_path(video), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_video_path(video), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Channel #{video.title} Will Deleted, Are You Sure?"}
+  = paginate @videos

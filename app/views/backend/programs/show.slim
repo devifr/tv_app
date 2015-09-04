@@ -1,0 +1,24 @@
+.panel-heading
+  h3 Show Program
+.panel-body
+  dl
+    dt Channel
+    dd = @program.channel.name
+  dl
+    dt Category
+    dd = @program.category.name
+  dl
+    dt Code
+    dd = @program.code
+  dl
+    dt Name
+    dd = @program.name
+  dl
+    dt Thumbnail
+    dd = image_tag @program.thumbnail.url(:thumb)
+  dl
+    dt Is Episode
+    dd = @program.is_episode
+  = link_to 'Back', backend_programs_path, class: 'btn btn-default'
+  | &nbsp;
+  = link_to 'Edit', edit_backend_program_path(@program), class: 'btn btn-primary'
