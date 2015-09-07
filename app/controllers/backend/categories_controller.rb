@@ -33,6 +33,10 @@ class Backend::CategoriesController < Backend::ApplicationController
     end
   end
 
+  def show
+    category
+  end
+
   def destroy
     if category.delete
       flash[:success] = 'Category Was Successfully Deleted'

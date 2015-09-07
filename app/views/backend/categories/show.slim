@@ -9,7 +9,7 @@
     dd = @category.name
   dl
     dt Thumbnail
-    dd = @category.thumbnail.url(:thumb)
+    dd = image_tag @category.thumbnail.url(:thumb)
   = link_to 'Back', backend_categories_path, class: 'btn btn-default'
   | &nbsp;
   = link_to 'Edit', edit_backend_category_path(@category), class: 'btn btn-primary'
