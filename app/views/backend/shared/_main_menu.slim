@@ -1,14 +1,22 @@
 /! Collect the nav links, forms, and other content for toggling
 #bs-example-navbar-collapse-1.collapse.navbar-collapse
   ul.nav.navbar-nav
-    li
+    li[class="#{active_menu?(:channels, :all)}"]
       = link_to 'Channel', backend_channels_path
-    li
+    li[class="#{active_menu?(:categories, :all)}"]
       = link_to 'Category', backend_categories_path
-    li
+    li[class="#{active_menu?(:programs, :all)}"]
       = link_to 'Program', backend_programs_path
-    li
+    li[class="#{active_menu?(:videos, :all)}"]
       = link_to 'Video', backend_videos_path
+    li[class="#{active_menu?(:schedules, :all)}"]
+      = link_to 'Schedule', backend_schedules_path
+    li[class="#{active_menu?(:lives, :all)}"]
+      = link_to 'Live', backend_lives_path
+    li[class="#{active_menu?(:images, :all)}"]
+      = link_to 'Image', backend_images_path
+    li[class="#{active_menu?(:slides, :all)}"]
+      = link_to 'Slide', backend_slides_path
   - if current_admin
     ul.nav.navbar-nav.navbar-right
       li.dropdown

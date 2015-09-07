@@ -20,4 +20,10 @@ module ApplicationHelper
     nil
   end
 
+  def active_menu?(controller, *actions)
+    if actions.include?(params[:action].to_sym) || actions.include?(:all)
+      return 'active'
+    end if controller_name == controller.to_s
+  end
+
 end
