@@ -18,6 +18,8 @@ gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'slim-rails'
 gem 'font-awesome-sass'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.15.35'
 
 group :development, :test do
   gem 'pry-byebug'
