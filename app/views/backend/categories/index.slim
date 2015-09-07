@@ -20,7 +20,7 @@
           td
             = link_to 'Show', backend_category_path(category), class: 'btn btn-info btn-sm'
             | &nbsp;
-            = link_to 'edit', edit_backend_category_path(category), class: 'btn btn-warning btn-sm'
+            = link_to 'Edit', edit_backend_category_path(category), class: 'btn btn-warning btn-sm'
             | &nbsp;
             = link_to 'Delete', backend_category_path(category), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Categories #{category.code} Will Deleted, Are You Sure?"}
   = paginate @categories

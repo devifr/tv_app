@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150903115230) do
   create_table "categories", force: :cascade do |t|
     t.string   "code"
     t.string   "name"
-    t.integer  "channel_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "thumbnail_file_name"
@@ -56,12 +55,6 @@ ActiveRecord::Schema.define(version: 20150903115230) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
-  end
-
-  create_table "featureds", force: :cascade do |t|
-    t.integer  "video_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -118,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150903115230) do
     t.integer  "episode"
     t.string   "media_id"
     t.integer  "count"
+    t.boolean  "featured"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "thumbnail_file_name"

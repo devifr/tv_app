@@ -8,6 +8,7 @@ class CreateVideos < ActiveRecord::Migration
       t.integer :episode
       t.string :media_id
       t.integer :count
+      t.boolean :featured
 
       t.timestamps null: false
     end

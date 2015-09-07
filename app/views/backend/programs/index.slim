@@ -22,7 +22,7 @@
           td
             = link_to 'Show', backend_program_path(program), class: 'btn btn-info btn-sm'
             | &nbsp;
-            = link_to 'edit', edit_backend_program_path(program), class: 'btn btn-warning btn-sm'
+            = link_to 'Edit', edit_backend_program_path(program), class: 'btn btn-warning btn-sm'
             | &nbsp;
             = link_to 'Delete', backend_program_path(program), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Channel #{program.code} Will Deleted, Are You Sure?"}
   = paginate @programs
