@@ -1,0 +1,19 @@
+.panel-heading
+  h3 List Slide
+.panel-body
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th NO
+        th Thumbnail
+        th Class
+        th Action
+    tbody
+      - @slides.each.with_index(1) do |slide, i|
+        tr
+          td = i
+          td = image_tag slide.imageable.thumbnail.url(:thumb), height: 50
+          td = slide.imageable.class.name
+          td
+            = link_to 'Delete', backend_slide_path(slide), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Slide #{slide.id} Will Deleted, Are You Sure?"}
+  = paginate @slides

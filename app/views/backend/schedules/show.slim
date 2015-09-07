@@ -1,0 +1,15 @@
+.panel-heading
+  h3 Show Schedule
+.panel-body
+  dl
+    dt Title
+    dd = @schedule.title
+  dl
+    dt Channel
+    dd = @schedule.channel.name
+  dl
+    dt Start At
+    dd = @schedule.start_at
+  = link_to 'Back', backend_schedules_path, class: 'btn btn-default'
+  | &nbsp;
+  = link_to 'Edit', edit_backend_schedule_path(@schedule), class: 'btn btn-primary'

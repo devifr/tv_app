@@ -18,6 +18,8 @@
           td = video.program.name
           td = video.title
           td
+            = link_to 'Add To Slide', add_video_backend_slide_path(video.id), class: 'btn btn-primary btn-sm' unless video.has_slide?
+            | &nbsp;
             = link_to 'Show', backend_video_path(video), class: 'btn btn-info btn-sm'
             | &nbsp;
             = link_to 'Edit', edit_backend_video_path(video), class: 'btn btn-warning btn-sm'

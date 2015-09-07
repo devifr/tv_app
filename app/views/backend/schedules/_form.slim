@@ -1,0 +1,13 @@
+.form-group
+  = f.label :start_at, class: 'control-label'
+  = f.text_field :start_at, class: 'datetimepicker form-control', value: f.object.start_at.strftime("%Y-%m-%d %H:%M")
+.form-group
+  = f.label :channel_id, class: 'control-label'
+  = f.select :channel_id, options_from_collection_for_select(@channels, :id, :name, f.object.channel_id), {prompt: 'Select Channel'}, class: 'form-control'
+.form-group
+  = f.label :title, class: 'control-label'
+  = f.text_field :title, class: 'form-control'
+.form-group
+  = link_to 'Back', backend_schedules_path, class: 'btn btn-default'
+  | &nbsp;
+  = f.submit 'Save', class: 'btn btn-primary'

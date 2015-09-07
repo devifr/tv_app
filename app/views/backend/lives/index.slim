@@ -1,0 +1,24 @@
+.panel-heading
+  h3 List Lives
+.panel-body
+  = link_to 'New', new_backend_life_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th No
+        th Channel
+        th Streaming URL
+        th Action
+    tbody
+      - @lives.each.with_index(1) do |live, i|
+        tr
+          td = i
+          td = live.channel.name
+          td = live.streaming_url
+          td
+            = link_to 'Show', backend_life_path(live), class: 'btn btn-info btn-sm'
+            | &nbsp;
+            = link_to 'Edit', edit_backend_life_path(live), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_life_path(live), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Lives #{live.id} Will Deleted, Are You Sure?"}
+  = paginate @lives

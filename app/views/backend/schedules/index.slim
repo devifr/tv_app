@@ -1,0 +1,24 @@
+.panel-heading
+  h3 List Schedules
+.panel-body
+  = link_to 'New', new_backend_schedule_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th No
+        th Title
+        th Channel
+        th Action
+    tbody
+      - @schedules.each.with_index(1) do |schedule, i|
+        tr
+          td = i
+          td = schedule.title
+          td = schedule.channel.name
+          td
+            = link_to 'Show', backend_schedule_path(schedule), class: 'btn btn-info btn-sm'
+            | &nbsp;
+            = link_to 'Edit', edit_backend_schedule_path(schedule), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_schedule_path(schedule), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Schedules #{schedule.title} Will Deleted, Are You Sure?"}
+  = paginate @schedules

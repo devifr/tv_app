@@ -1,0 +1,9 @@
+.form-group
+  = f.label :thumbnail, class: 'control-label'
+  br
+  = image_tag f.object.thumbnail.url(:thumb)
+  = f.file_field :thumbnail
+.form-group
+  = link_to 'Back', backend_images_path, class: 'btn btn-default'
+  | &nbsp;
+  = f.submit 'Save', class: 'btn btn-primary'

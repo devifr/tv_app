@@ -1,0 +1,12 @@
+.panel-heading
+  h3 Show Live
+.panel-body
+  dl
+    dt Channel
+    dd = @live.channel.name
+  dl
+    dt Streaming URL
+    dd = @live.streaming_url
+  = link_to 'Back', backend_lives_path, class: 'btn btn-default'
+  | &nbsp;
+  = link_to 'Edit', edit_backend_life_path(@live), class: 'btn btn-primary'

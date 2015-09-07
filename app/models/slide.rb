@@ -1,3 +1,3 @@
 class Slide < ActiveRecord::Base
-  belongs_to :slideable, polymorphic: true
+  belongs_to :imageable, polymorphic: true
 end

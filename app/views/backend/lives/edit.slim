@@ -1,0 +1,5 @@
+.panel-heading
+  h3 Update Live
+.panel-body
+  = form_for @live, url: backend_life_path(@live), class: 'form-horizontal' do |f|
+    = render 'form', f: f

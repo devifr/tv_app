@@ -1,0 +1,22 @@
+.panel-heading
+  h3 List Images
+.panel-body
+  = link_to 'New', new_backend_image_path, class: 'btn btn-default'
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th NO
+        th Thumbnail
+        th Action
+    tbody
+      - @images.each.with_index(1) do |image, i|
+        tr
+          td = i
+          td = image_tag image.thumbnail.url(:thumb), height: 50
+          td
+            = link_to 'Add To Slide', add_image_backend_slide_path(image.id), class: 'btn btn-primary btn-sm' unless image.has_slide?
+            | &nbsp;
+            = link_to 'Edit', edit_backend_image_path(image), class: 'btn btn-warning btn-sm'
+            | &nbsp;
+            = link_to 'Delete', backend_image_path(image), class: 'btn btn-danger btn-sm', method: 'delete', data: {confirm: "Images #{image.id} Will Deleted, Are You Sure?"}
+  = paginate @images
